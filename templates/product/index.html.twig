@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nos voitures - V. PARROT
+{% endblock %}
+
+{% block body %}
+	<div class="container">
+		{% for product in products %}
+			<div class="card " style="width: 18rem;">
+
+				<img src="https://www.prestigegaribaldi.fr/pgcontenu/uploads/2020/11/0032f1c2442fbbef6f1e58d899cc20a5f6a31629.jpg" class="card-img" alt="une photo d'une voiture">
+				<div class="">
+					<h5 class="card-title">{{ product.titre }}</h5>
+					<p class="card-text">170 chevaux, caméra et radars de recul, sièges chauffants.</p>
+					<button type="button" class="btn btn-primary">Selectionner</button>
+					<p class="card-text">
+
+						<small>Kilometrage
+							{{ product.km }}</small>
+					</p>
+				</div>
+			</div>
+
+			*
+			{{ product.id }}.jpg
+		{% else %}
+			No products have been found.
+		{% endfor %}
+
+
+	</div>
+
+{% endblock %}
