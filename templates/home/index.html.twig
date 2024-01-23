@@ -1,19 +1,100 @@
 {% extends "base.html.twig" %}
 
 {% block body %}
-<div class="container col-xxl-8 px-4 py-5">
-    <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
-      <div class="col-10 col-sm-8 col-lg-6">
-        <img src="https://placehold.co/40" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy">
-      </div>
-      <div class="col-lg-6">
-        <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">Responsive left-aligned hero with image</h1>
-        <p class="lead">Quickly design and customize responsive mobile-first sites with Bootstrap, the world’s most popular front-end open source toolkit, featuring Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful JavaScript plugins.</p>
-        <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-          <button type="button" class="btn btn-primary btn-lg px-4 me-md-2">Primary</button>
-          <button type="button" class="btn btn-outline-secondary btn-lg px-4">Default</button>
+<style>
+        body {
+            /* padding-top: 56px; */
+        }
+        .carousel-item {
+            height: 50vh;
+            min-height: 300px;
+            background: no-repeat center center scroll;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+        .carousel-caption {
+            bottom: 20%;
+        }
+        .services {
+            padding: 80px 0;
+            background-color: #f8f9fa;
+        }
+    </style>
+<body>
+
+
+
+<!-- Hero Section with Carousel -->
+<header id="home">
+    <div id="carouselExample" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active" style="background-image: url('https://via.placeholder.com/1600x500');">
+                <div class="carousel-caption d-none d-md-block">
+                    <h1 class="display-4">Your Trusted Auto Care Partner</h1>
+                    <p class="lead">Quality service you can rely on</p>
+                </div>
+            </div>
+            <!-- Add more carousel items as needed -->
         </div>
-      </div>
     </div>
-  </div>
+</header>
+
+<!-- Services Section -->
+<section id="services" class="services">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+    <h2 class="section-heading text-uppercase">Nos Services</h2>
+    <p class="text-muted">Découvrez la gamme complète de services d'entretien automobile que nous proposons pour maintenir votre véhicule en parfait état.</p>
+</div>
+
+<div class="row">
+    <div class="col-lg-4">
+        <h4 class="service-title">Entretien régulier</h4>
+        <p class="text-muted">Assurez la longévité de votre véhicule avec nos services d'entretien régulier, comprenant les changements d'huile, les vérifications des fluides et les rotations de pneus.</p>
+    </div>
+
+    <div class="col-lg-4">
+        <h4 class="service-title">Services de diagnostic</h4>
+        <p class="text-muted">Identifiez et résolvez les problèmes potentiels avec nos services de diagnostic avancés, utilisant des équipements de pointe et des techniciens qualifiés.</p>
+    </div>
+
+    <div class="col-lg-4">
+        <h4 class="service-title">Réparations du système de freinage</h4>
+        <p class="text-muted">Confiez-nous les réparations de votre système de freinage, assurant votre sécurité sur la route avec des inspections, des réparations et des remplacements de freins experts.</p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-4">
+        <h4 class="service-title">Réglages et améliorations des performances</h4>
+        <p class="text-muted">Optimisez les performances de votre véhicule avec nos services professionnels de réglage et explorez diverses améliorations de performances adaptées à vos préférences.</p>
+    </div>
+
+    <div class="col-lg-4">
+        <h4 class="service-title">Réparations du système électrique</h4>
+        <p class="text-muted">Traitez efficacement les problèmes électriques avec nos techniciens qualifiés, offrant des diagnostics, des réparations et des remplacements pour le système électrique de votre véhicule.</p>
+    </div>
+
+    <div class="col-lg-4">
+        <h4 class="service-title">Nettoyage personnalisé</h4>
+        <p class="text-muted">Offrez à votre véhicule une brillance digne d'une salle d'exposition avec nos services de nettoyage personnalisé, comprenant le nettoyage intérieur et extérieur, le cirage et le polissage.</p>
+    </div>
+</div>
+
+    </div>
+</section>
+
+<!-- Bootstrap JS and dependencies -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+    
+
+
+
 {% endblock %}
