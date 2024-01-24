@@ -1,0 +1,93 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nos voitures - V. PARROT
+{% endblock %}
+
+{% block body %}
+
+ <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        .car-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .car-image {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .car-details {
+            margin-top: 20px;
+        }
+
+        .contact-form {
+            margin-top: 30px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div class="car-container">
+    <img class="car-image" src="car_image.jpg" alt="Car Image">
+    <div class="car-details">
+        <h2>{{ product.titre }}</h2>
+        <p>{{ product.description}}</p>
+        <p>Mileage: 20,000 miles</p>
+    </div>
+
+    <div class="contact-form">
+        <h3>Contact the Garage</h3>
+ {{ form_start(form) }}
+     <div class="my-custom-class-for-errors">
+        {{ form_errors(form) }}
+    </div>
+<div class="h4">
+{{ form_widget(form.sujet) }}
+            {# {{ form_row(form.sujet) }} #}
+</div>
+
+   <div class="row">
+        <div class="col">
+        
+            {{ form_row(form.fname) }}
+        </div>
+        <div class="col" id="">
+            {{ form_row(form.lname) }}
+        </div>
+    </div>
+
+
+ {{ form_end(form) }}
+
+    </div>
+</div>
+<div class="container">
+</div>
+</body>
+{% endblock %}
