@@ -5,25 +5,27 @@
 				<use xlink:href="#bootstrap"></use>
 			</svg>
 			<img src="" alt="">
-			<span class="fs-4">Stage de Paolo</span>
+			<span class="fs-4">Garage V.PARROT</span>
 		</a>
 
 		<ul class="nav nav-pills">
 			<li class="nav-item">
-				<a href="#" class="nav-link active" aria-current="page">Home</a>
+				<a href="{{path('app_home')}}" class="nav-link active" aria-current="page">Home</a>
 			</li>
 			<li class="nav-item">
-				<a href="#" class="nav-link">Features</a>
+				<a href="{{path('app_product')}}" class="nav-link">Voitures</a>
 			</li>
 			<li class="nav-item">
-				<a href="#" class="nav-link">Pricing</a>
+				<a href="{{path('app_contact')}}" class="nav-link">Nous Contacter</a>
 			</li>
 			<li class="nav-item">
-				<a href="#" class="nav-link">FAQs</a>
+				<a href="login" class="nav-link">Login</a>
 			</li>
-			<li class="nav-item">
-				<a href="#" class="nav-link">About</a>
-			</li>
+			{% if (is_granted("ROLE_ADMIN")) %}
+				<li class="nav-link">
+					<a href="/admin" class="dropdown-item">Accéder au backoffice</a>
+				</li>
+			{% endif %}
 		</ul>
 	</header>
 </div>

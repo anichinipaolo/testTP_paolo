@@ -1,0 +1,12 @@
+
+{% block body %}
+
+<h4> Nos Horaires d'ouverture</h4>
+{% for hour in opening %}
+    
+        {{ hour.jour }} {{ hour.heures }} <br>
+    </a>
+{% endfor %}
+
+
+{% endblock %}

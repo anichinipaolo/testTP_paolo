@@ -51,38 +51,19 @@
 					</div>
 
 					<div class="row">
-						<div class="col-lg-4">
-							<h4 class="service-title">Entretien régulier</h4>
-							<p class="text-muted">Assurez la longévité de votre véhicule avec nos services d'entretien régulier, comprenant les changements d'huile, les vérifications des fluides et les rotations de pneus.</p>
-						</div>
+					{% for service in services %}
 
-						<div class="col-lg-4">
-							<h4 class="service-title">Services de diagnostic</h4>
-							<p class="text-muted">Identifiez et résolvez les problèmes potentiels avec nos services de diagnostic avancés, utilisant des équipements de pointe et des techniciens qualifiés.</p>
-						</div>
+						
+<div class="col-lg-4">
+							<h4 class="service-title">{{ service.sname }}</h4>
+							<p class="text-muted">{{ service.sdescription }}</p>
 
-						<div class="col-lg-4">
-							<h4 class="service-title">Réparations du système de freinage</h4>
-							<p class="text-muted">Confiez-nous les réparations de votre système de freinage, assurant votre sécurité sur la route avec des inspections, des réparations et des remplacements de freins experts.</p>
-						</div>
 					</div>
+					{% else %}
+						No services have been found.
+					{% endfor %}
+						
 
-					<div class="row">
-						<div class="col-lg-4">
-							<h4 class="service-title">Réglages et améliorations des performances</h4>
-							<p class="text-muted">Optimisez les performances de votre véhicule avec nos services professionnels de réglage et explorez diverses améliorations de performances adaptées à vos préférences.</p>
-						</div>
-
-						<div class="col-lg-4">
-							<h4 class="service-title">Réparations du système électrique</h4>
-							<p class="text-muted">Traitez efficacement les problèmes électriques avec nos techniciens qualifiés, offrant des diagnostics, des réparations et des remplacements pour le système électrique de votre véhicule.</p>
-						</div>
-
-						<div class="col-lg-4">
-							<h4 class="service-title">Nettoyage personnalisé</h4>
-							<p class="text-muted">Offrez à votre véhicule une brillance digne d'une salle d'exposition avec nos services de nettoyage personnalisé, comprenant le nettoyage intérieur et extérieur, le cirage et le polissage.</p>
-						</div>
-					</div>
 
 				</div>
 			</section>

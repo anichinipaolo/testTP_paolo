@@ -5,27 +5,32 @@
 
 {% block body %}
 	<div class="container">
-		{% for product in products %}
-			<div class="card " style="width: 18rem;">
+		<div class="row">
+			{% for product in products %}
+				<div class="col-4 ">
 
-				<img src="https://www.prestigegaribaldi.fr/pgcontenu/uploads/2020/11/0032f1c2442fbbef6f1e58d899cc20a5f6a31629.jpg" class="card-img" alt="une photo d'une voiture">
-				<div class="">
-					<h5 class="card-title">{{ product.titre }}</h5>
-					<p class="card-text">170 chevaux, caméra et radars de recul, sièges chauffants.</p>
-					<button type="button" class="btn btn-primary">Selectionner</button>
-					<p class="card-text">
+					<div class="card " style="">
 
-						<small>Kilometrage
-							{{ product.km }}</small>
-					</p>
+						<img src="/assets/{{product.id}}/{{product.id}}.jpg" class="card-img" alt="une photo d'une voiture">
+						<div class="p-4">
+							<h5 class="card-title">{{ product.titre }}</h5>
+							<p class="card-text">{{ product.description }}</p>
+							{# <button type="button" class="btn btn-primary">Selectionner</button> #}
+							<a href="/product/{{product.id}}" class="btn btn-primary">Selectionner</a>
+							<p class="card-text">
+
+								<small>Kilometrage
+									{{ product.km }}</small>
+							</p>
+						</div>
+					</div>
+
 				</div>
-			</div>
 
-			*
-			{{ product.id }}.jpg
 		{% else %}
 			No products have been found.
 		{% endfor %}
+			</div>
 
 
 	</div>

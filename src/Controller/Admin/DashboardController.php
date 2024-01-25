@@ -9,6 +9,7 @@ use App\Entity\Products;
 use App\Entity\Services;
 use Symfony\Component\HttpFoundation\Response;
 use App\Controller\Admin\CommentCrudController;
+use App\Entity\OpeningHours;
 use Symfony\Component\Routing\Annotation\Route;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
@@ -53,6 +54,7 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Comments', 'fas fa-comment', Comment::class);
         yield MenuItem::linkToCrud('Products', 'fas fa-car', Products::class);
         yield MenuItem::linkToCrud('Services', 'fas fa-wrench', Services::class);
-        yield MenuItem::linkToCrud('User', 'fas fa-user', User::class);
+        yield MenuItem::linkToCrud('User', 'fas fa-user', User::class)->setPermission('ROLE_ADMIN');
+        yield MenuItem::linkToCrud('Ouverture', 'fas fa-clock', OpeningHours::class);
     }
 }

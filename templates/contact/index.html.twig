@@ -1,0 +1,35 @@
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Contact page{% endblock %}
+
+{% block body %}
+<body>
+<div class="container">
+  <div class="p-5"></div>
+ {{ form_start(form) }}
+     <div class="my-custom-class-for-errors">
+        {{ form_errors(form) }}
+    </div>
+<div class="h4">
+
+{# {{ form_widget(form.sujet) }} #}
+            {{ form_row(form.sujet) }}
+</div>
+
+   <div class="row">
+        <div class="col">
+        
+            {{ form_row(form.fname) }}
+        </div>
+        <div class="col" id="">
+            {{ form_row(form.lname) }}
+        </div>
+    </div>
+
+
+ {{ form_end(form) }}
+</div>
+</body>
+
+ {% endblock %}

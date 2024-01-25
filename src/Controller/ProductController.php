@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Contact;
 use App\Entity\Products;
 use App\Form\ContactType;
+use Symfony\Component\Finder\Finder;
 use App\Repository\ProductRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -30,6 +31,15 @@ class ProductController extends AbstractController
     #[Route(path: '/product/{id}', name: 'product')]
     public function show(Products $product, Request $request, EntityManagerInterface $manager): Response
     {
+        $finder = new Finder();
+        $finder->files()->in("./assets/1");
+        foreach ($finder as $file) {
+            $absoluteFilePath = $file->getRealPath();
+            $fileNameWithExtension = $file->getRelativePathname();
+        
+            // ...
+        }
+        // dd($fileNameWithExtension);
 
         $contact = new Contact;
         
@@ -54,6 +64,7 @@ class ProductController extends AbstractController
         return $this->render('product/show.html.twig', [
             'product' => $product,
             "form" => $form->createView(),
+            'finder' => $finder
             // 'cartNotif' => $cart,
         ]);
     }
