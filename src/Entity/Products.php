@@ -30,6 +30,12 @@ class Products
     #[ORM\OneToMany(mappedBy: 'sujet', targetEntity: Contact::class)]
     private Collection $contacts;
 
+    #[ORM\OneToMany(mappedBy: 'voiture', targetEntity: Pictures::class)]
+    private Collection $pictures;
+
+
+
+
     public function __toString()
     {
         return $this->titre;
@@ -38,6 +44,7 @@ class Products
     public function __construct()
     {
         $this->contacts = new ArrayCollection();
+        $this->pictures = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -129,4 +136,37 @@ class Products
 
         return $this;
     }
+
+    /**
+     * @return Collection<int, Pictures>
+     */
+    public function getPictures(): Collection
+    {
+        return $this->pictures;
+    }
+
+    public function addPicture(Pictures $picture): static
+    {
+        if (!$this->pictures->contains($picture)) {
+            $this->pictures->add($picture);
+            $picture->setVoiture($this);
+        }
+
+        return $this;
+    }
+
+    public function removePicture(Pictures $picture): static
+    {
+        if ($this->pictures->removeElement($picture)) {
+            // set the owning side to null (unless already changed)
+            if ($picture->getVoiture() === $this) {
+                $picture->setVoiture(null);
+            }
+        }
+
+        return $this;
+    }
+
+
+
 }

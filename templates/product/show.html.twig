@@ -64,12 +64,14 @@
 			<p>Mileage: 20,000 miles</p>
 		</div>
 
-		<h3>Gallery</h3>
-        
-		{% for file in finder %}
-	
-			<img
-			src="/assets/{{product.id}}/{{file.relativePathname}}" alt="" class="img-thumbnail" style="width: 200px" data-bs-toggle="modal" data-bs-target="#exampleModal{{loop.index}}">
+
+<h3>Gallery</h3>
+
+		{% for item in pictures %}
+			{# <img src="/assets/{{item.illustration}}" alt=""> #}
+
+<img
+			src="/assets/{{item.illustration}}" alt="" class="img-thumbnail" style="width: 200px" data-bs-toggle="modal" data-bs-target="#exampleModal{{loop.index}}">
 			<!-- Modal -->
 			<div class="modal fade" id="exampleModal{{loop.index}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 				<div class="modal-dialog" id="{{loop.index}}">
@@ -79,7 +81,7 @@
 							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 						</div>
 						<div class="modal-body">
-							<img src="/assets/{{product.id}}/{{file.relativePathname}}" alt="" class="img-fluid">
+							<img src="/assets/{{item.illustration}}" alt="" class="img-fluid">
 						</div>
 
 					</div>
@@ -87,8 +89,15 @@
 			</div>
 
 		{% else %}
-			No services have been found.
+			Pas encore de photos!
+
+
 		{% endfor %}
+
+		
+
+
+		
 
 		<div class="contact-form">
 			<h3>Contact the Garage</h3>

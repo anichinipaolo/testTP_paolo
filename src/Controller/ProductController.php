@@ -7,6 +7,7 @@ use App\Entity\Products;
 use App\Form\ContactType;
 use Symfony\Component\Finder\Finder;
 use App\Repository\ProductRepository;
+use App\Repository\PicturesRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -29,7 +30,7 @@ class ProductController extends AbstractController
     }
 
     #[Route(path: '/product/{id}', name: 'product')]
-    public function show(Products $product, Request $request, EntityManagerInterface $manager): Response
+    public function show(Products $product, Request $request, EntityManagerInterface $manager, PicturesRepository $picturesRepository, ): Response
     {
         $finder = new Finder();
         $finder->files()->in("./assets/1");
@@ -40,6 +41,8 @@ class ProductController extends AbstractController
             // ...
         }
         // dd($fileNameWithExtension);
+$pictures = $product->getPictures();
+// dump($pictures);
 
         $contact = new Contact;
         
@@ -64,7 +67,8 @@ class ProductController extends AbstractController
         return $this->render('product/show.html.twig', [
             'product' => $product,
             "form" => $form->createView(),
-            'finder' => $finder
+            'finder' => $finder,
+            'pictures' => $pictures,
             // 'cartNotif' => $cart,
         ]);
     }
